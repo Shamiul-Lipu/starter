@@ -1,34 +1,37 @@
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SectionTitle from "../../components/Titles/SectionTitle";
 import imageLogIn from '../../assets/images/login.jpg'
 import { useForm } from "react-hook-form";
-import Container from "../../components/Container/Container";
 import { Link } from 'react-router-dom'
-
+import { FcGoogle } from 'react-icons/fc'
 import { FaEye, FaEyeSlash, FaExclamationTriangle, FaExclamationCircle } from "react-icons/fa";
 import { useState } from "react";
+import Button from "../../components/Button/Button";
+import SubSectionTitle from "../../components/Titles/SubSectionTitle";
+
+
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [seePass, setSeePass] = useState(false)
+    const [seePass, setSeePass] = useState(false);
 
     const onSubmit = data => {
         console.log(data)
     };
 
     return (
-        <section className="min-h-screen">
-            <SectionTitle title={'Log in'} titleShort={'Welcome, Sign in to access your account'}></SectionTitle>
+        <section className="min-h-screen ">
+            <SectionTitle titleShort={'Welcome back, Sign in to access your account'}></SectionTitle>
             {/*  */}
-            <Container>
+            <div className="max-w-6xl mx-auto px-5">
                 <div className="flex flex-row justify-center items-center md:grid md:grid-cols-2 ">
                     {/* img */}
                     <div className="my-auto hidden md:block">
                         <img className="md:w-11/12 max-w-xl pb-5" src={imageLogIn} alt="" />
                     </div>
                     {/* form section */}
-                    <div className="p-4 max-h-[600px] flex flex-col max-w-lg rounded-lg bg-gray-100 text-gray-900">
-                        {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                    <div className="p-5 max-h-[600px] flex flex-col max-w-lg rounded-lg bg-gray-100 text-gray-900">
+                        <SubSectionTitle title={'Login'}></SubSectionTitle>
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-2">
                             {/* email */}
                             <div className="form-control">
                                 <label className="label">
@@ -85,7 +88,7 @@ const Login = () => {
                             </div>
                             {/* button */}
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                <Button outline={false} label={'Login'} className="" type="submit" value="Login" />
                             </div>
                             <p className='px-6 text-sm text-center text-gray-400'>
                                 Don{'\''}t have an account yet?{' '}
@@ -98,9 +101,16 @@ const Login = () => {
                                 .
                             </p>
                         </form>
+                        <div className="divider text-sm">Login with social accounts</div>
+                        <div
+
+                            className='mx-auto my-2'
+                        >
+                            <button className="btn btn-outline "><FcGoogle size={30} />Continue with Google</button>
+                        </div>
                     </div>
                 </div>
-            </Container>
+            </div>
         </section>
     );
 };

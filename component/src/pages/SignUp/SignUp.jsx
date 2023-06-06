@@ -1,11 +1,12 @@
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SectionTitle from "../../components/Titles/SectionTitle";
 import imageSignUp from '../../assets/images/signup.jpg'
 import { useForm } from "react-hook-form";
-import Container from "../../components/Container/Container";
 import { Link } from 'react-router-dom'
-
 import { FaEye, FaEyeSlash, FaExclamationTriangle, FaExclamation, FaExclamationCircle } from "react-icons/fa";
 import { useState } from "react";
+import Button from "../../components/Button/Button";
+import { FcGoogle } from "react-icons/fc";
+import SubSectionTitle from "../../components/Titles/SubSectionTitle";
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -17,17 +18,17 @@ const SignUp = () => {
 
     return (
         <section className="min-h-screen">
-            <SectionTitle title={'Sign up'} titleShort={'Welcome, Sign up to get an account'}></SectionTitle>
+            <SectionTitle titleShort={'Welcome, Sign up to get an account'}></SectionTitle>
             {/*  */}
-            <Container>
+            <div className="max-w-6xl mx-auto px-5">
                 <div className="flex flex-row justify-center items-center md:grid md:grid-cols-2 ">
                     {/* form section */}
                     <div className="p-4 max-h-[600px] flex flex-col max-w-lg rounded-lg bg-gray-100 text-gray-900">
-                        {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <SubSectionTitle title={'Sign up'}></SubSectionTitle>
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-2">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text font-semibold">Name</span>
                                 </label>
                                 <input
                                     type="text"
@@ -45,7 +46,7 @@ const SignUp = () => {
 
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text font-semibold">Email</span>
                                 </label>
                                 <input
                                     type="email"
@@ -103,7 +104,8 @@ const SignUp = () => {
 
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                <Button type={'submit'}
+                                    label={'Sign up'} className="btn btn-primary" value="Sign Up" />
                             </div>
                             <p className='px-6 text-sm text-center text-gray-400'>
                                 Already have an account?{' '}
@@ -116,6 +118,13 @@ const SignUp = () => {
                                 .
                             </p>
                         </form>
+                        <div className="divider text-sm"> Sign in with social accounts</div>
+                        <div
+
+                            className='mx-auto my-2 '
+                        >
+                            <button className="btn btn-outline "><FcGoogle size={30} />Continue with Google</button>
+                        </div>
                     </div>
                     {/* img */}
                     <div className="my-auto hidden md:block">
@@ -123,7 +132,7 @@ const SignUp = () => {
                     </div>
 
                 </div>
-            </Container>
+            </div>
         </section>
     );
 };

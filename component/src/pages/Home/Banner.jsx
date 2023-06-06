@@ -1,9 +1,13 @@
+import background from '../../assets/images/split_background.png';
 
 const Banner = () => {
+
+
     return (
-        <div>
-            banner
+        <div className="custom-background">
+
         </div>
+
     );
 };
 

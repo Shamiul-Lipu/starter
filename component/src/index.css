@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.my-button {
+    background-color: brown;
+    color: aqua;
+    padding: 1rem 2rem;
+}
+
+.custom-background {
+    background-image: url('./assets/images/split_background.png');
+    height: 20rem;
+    /* Additional background styles if needed */
+}

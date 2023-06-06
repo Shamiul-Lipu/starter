@@ -33,11 +33,11 @@ const NavBar = () => {
 
     </>
     return (
-        <header className=" bg-slate-200 py-4 fixed w-full z-10 shadow-md">
+        <header className="  py-4 fixed w-full z-10 shadow-md">
             <Container>
                 <div className="flex flex-col md:flex-row justify-between">
                     {/* logo & brand name */}
-                    <div className="flex gap-2 mx-auto md:ml-0 bg-slate-400 md:bg-slate-200 items-center">
+                    <div className="flex gap-2 mx-auto md:ml-0  items-center">
                         <h1>logo</h1>
                         <h3>Component</h3>
                     </div>
